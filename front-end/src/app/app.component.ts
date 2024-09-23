@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
-import { StudentcrudComponent } from './studentcrud/studentcrud.component'; 
+import { StudentcrudComponent } from './studentcrud/studentcrud.component';
 import { HttpClient } from '@angular/common/http';
- 
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  standalone: true,  // Se o AppComponent também for standalone (caso contrário, remova isso)
-  imports: [StudentcrudComponent]  // Importe o componente standalone aqui
+  styleUrls: ['./app.component.scss']
 })
 
 
 export class AppComponent {
 
-  StudentArray: any[] = [];
+StudentArray: any[] = [];
   currentStudentID = "";
 
   name: string = "";
@@ -26,7 +24,7 @@ export class AppComponent {
   }
   getAllStudent() {
 
-    this.http.get("http://localhost:8000/user/getAll")
+   this.http.get("http://localhost:8000/user/getAll")
       .subscribe((resultData: any) => {
 
         console.log(resultData);
